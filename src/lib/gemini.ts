@@ -38,13 +38,13 @@ export async function generateChatResponse({ prompt, history = [] }: GenerateCon
     const result = await chat.sendMessage(prompt);
     const response = await result.response;
     const text = response.text();
-    
+
     return { success: true, data: text };
   } catch (error) {
     console.error('Error generating response:', error);
-    return { 
-      success: false, 
-      error: error instanceof Error ? error.message : 'Failed to generate response' 
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : 'Failed to generate response'
     };
   }
 }
